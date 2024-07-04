@@ -11,20 +11,26 @@ const Page = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState<string | number>("");
 
-  const HandleCalculateLove = () => {
-    setIsOpen((state) => !state);
-    const random = Math.floor(Math.random() * 100) + 1;
-    if (name1 === "Maciejko" || name2 === "Maryjka") {
-      setResult("100");
-    }
-    if (name1 === "Maryjka" || name2 === "Maciejko") {
-        setResult("100");
-    }else{
-        setResult(`${random}`)
-    }
+  const handleCalculateLove = () => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
 
+    if (name1.toLowerCase() === "maciejko" && name2.toLowerCase() === "maryjka") {
+      setResult(100);
+    } else if (name1.toLowerCase() === "maryjka" && name2.toLowerCase() === "maciejko") {
+      setResult(100);
+    } else {
+      const random = Math.floor(Math.random() * 100) + 1;
+      setResult(random);
+    }
+  };
+
+  const resetCalculator = () => {
+    setName1("");
+    setName2("");
+    setResult("");
+    setIsOpen(true);
   };
 
   return (
@@ -66,25 +72,21 @@ const Page = () => {
               <h1 className="text-2xl font-bold">
                 {name1} <span className="text-blue-600">&</span> {name2}
               </h1>
-              <p className="text-3xl"><span className="text-blue-600 font-bold">{result}</span>%</p>
+              <p className="text-3xl">
+                <span className="text-blue-600 font-bold">{result}</span>%
+              </p>
             </div>
           )}
 
           <div className="relative z-10 flex justify-center mt-5">
-            <Button onClick={HandleCalculateLove}>
-              {isOpen ? (
-                "Calculate Love"
-              ) : (
-                <>
-                  <ArrowLeft className="h-4 w-4" />
-                  Back
-                </>
-              )}
+            <Button onClick={isOpen ? handleCalculateLove : resetCalculator}>
+              {isOpen ? "Calculate Love" : <ArrowLeft className="h-4 w-4" />}
+              {!isOpen && " Back"}
             </Button>
           </div>
         </div>
         <Link href="/">
-          <Button variant={"ghost"} className="mb-5">
+          <Button variant="ghost" className="mb-5">
             <ArrowLeft className="h-4 w-4" />
             Back to site
           </Button>

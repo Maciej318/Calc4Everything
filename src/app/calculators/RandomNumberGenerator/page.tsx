@@ -26,37 +26,55 @@ const Page = () => {
   };
 
   return (
-    <div>
-      <MaxWidthWrapper>
-        <h1 className="text-3xl text-center mb-1">
+    <div className="bg-gray-100 min-h-screen">
+      <MaxWidthWrapper className="max-w-screen-md mx-auto px-4 py-8">
+        <h1 className="text-3xl text-center mb-4">
           <span className="text-blue-600">Random Number</span> Generator
         </h1>
-        <div className="border-b w-[370px] mx-auto mb-10 border-zinc-300" />
-        <div className="relative h-[calc(100vh-200px)] w-full p-4 gap-8">
-          <label>Min:</label>
-          <Input
-            type="number"
-            value={min}
-            onChange={(e) => setMin(e.target.value)}
-            className="mb-10"
-          />
-          <label>Max:</label>
-          <Input
-            type="number"
-            value={max}
-            onChange={(e) => setMax(e.target.value)}
-            className="mb-10"
-          />
-          <Button onClick={handleGenerate} className="mb-10">Generate</Button>
-          {randomNumber !== null && (
-            <div>
-              <h3>Wygenerowana liczba: <span className="font-bold text-blue-600">{randomNumber}</span></h3>
-            </div>
-          )}
+        <div className="border-b w-full mx-auto mb-6 border-zinc-300" />
+
+        <div className="flex flex-col md:flex-row gap-6 mb-6">
+          <div className="flex-1">
+            <label className="block text-gray-700 mb-2">Min:</label>
+            <Input
+              type="number"
+              value={min}
+              onChange={(e) => setMin(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              placeholder="Enter minimum value"
+            />
+          </div>
+          <div className="flex-1">
+            <label className="block text-gray-700 mb-2">Max:</label>
+            <Input
+              type="number"
+              value={max}
+              onChange={(e) => setMax(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              placeholder="Enter maximum value"
+            />
+          </div>
         </div>
+
+        <Button
+          onClick={handleGenerate}
+          className="w-full md:w-auto mb-6 md:mb-0"
+        >
+          Generate
+        </Button>
+
+        {randomNumber !== null && (
+          <div className="text-center mt-6">
+            <h3 className="text-xl ">
+              Generated Number:
+              {' '}<span className="font-bold text-blue-600">{randomNumber}</span>
+            </h3>
+          </div>
+        )}
+
         <Link href="/">
-          <Button variant={"ghost"} className="my-10">
-            <ArrowLeft className="h-4 w-4" />
+          <Button variant="ghost" className="mt-6 flex justify-center">
+            <ArrowLeft className="h-4 w-4 mr-2" />
             Back to site
           </Button>
         </Link>

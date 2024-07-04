@@ -1,18 +1,18 @@
-import Link from "next/link"
-import MaxWidthWrapper from "./MaxWidthWrapper"
-import { Calculator } from "lucide-react"
+import Link from "next/link";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const Navbar = () => {
-    return <nav className="sticky z-[100] h-14 inset-x-0 top-0 w-full border-b border-gray-200
-    bg-white/75 backdrop-blur-lg transition-all mb-20">
-        <MaxWidthWrapper>
-            <div className="flex h-14 items-center justify-between border-b border-zinc-200">
-                <Link href='/'>
-                    <span className="text-blue-600 font-bold text-lg">calc4</span>everything
-                </Link>
-            </div>
-        </MaxWidthWrapper>
+  return (
+    <nav className="sticky top-0 z-[100] h-14 inset-x-0 w-full bg-white bg-opacity-75 backdrop-blur-lg transition-all border-b border-gray-200 mb-4 md:mb-20">
+      <MaxWidthWrapper>
+        <div className="flex items-center h-14">
+          <Link href="/" className=" font-bold text-lg flex items-center">
+              <span className="text-blue-600">calc4</span>everything
+          </Link>
+        </div>
+      </MaxWidthWrapper>
     </nav>
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

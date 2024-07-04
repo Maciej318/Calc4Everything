@@ -61,59 +61,59 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="bg-slate-50 min-h-screen">
       <MaxWidthWrapper>
-        <h1 className="text-3xl text-center mb-1"><span className="text-blue-600">Calorie</span> Calculator</h1>
-        <div className="border-b w-[370px] mx-auto mb-6 border-zinc-300" />
-        <div className="relative h-[calc(100vh-200px)] w-full p-4 gap-8">
-          <div className="mb-5">
-            <label>
-              Age:
+        <h1 className="text-3xl text-center mb-4 mt-8">
+          <span className="text-blue-600">Calorie</span> Calculator
+        </h1>
+        <div className="border-b w-full mx-auto mb-6 border-zinc-300" />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <div className="mb-5">
+              <label className="block mb-1">Age:</label>
               <Input
                 type="number"
-                className="w-[500px]"
+                className="w-full"
                 value={age}
                 onChange={handleAgeChange}
               />
-            </label>
-          </div>
-          <div className="mb-5">
-            <label>
-              Gender:
-              <select value={gender} onChange={handleGenderChange}>
+            </div>
+            <div className="mb-5">
+              <label className="block mb-1">Gender:</label>
+              <select
+                value={gender}
+                onChange={handleGenderChange}
+                className="w-full"
+              >
                 <option value="male">Man</option>
                 <option value="female">Woman</option>
               </select>
-            </label>
-          </div>
-          <div className="mb-5">
-            <label>
-              Height (cm):
+            </div>
+            <div className="mb-5">
+              <label className="block mb-1">Height (cm):</label>
               <Input
-                className="w-[500px]"
                 type="number"
+                className="w-full"
                 value={height}
                 onChange={handleHeightChange}
               />
-            </label>
-          </div>
-          <div className="mb-5">
-            <label>
-              Weight (kg):
+            </div>
+            <div className="mb-5">
+              <label className="block mb-1">Weight (kg):</label>
               <Input
-                className="w-[500px]"
                 type="number"
+                className="w-full"
                 value={weight}
                 onChange={handleWeightChange}
               />
-            </label>
-          </div>
-          <div className="mb-5">
-            <label>
-              Level of physical activity:
+            </div>
+            <div className="mb-5">
+              <label className="block mb-1">Level of physical activity:</label>
               <select
                 value={activityLevel}
                 onChange={handleActivityLevelChange}
+                className="w-full"
               >
                 {activityLevels.map((level) => (
                   <option key={level.value} value={level.value}>
@@ -121,26 +121,31 @@ export default function Home() {
                   </option>
                 ))}
               </select>
-            </label>
-          </div>
-          <div className="mb-5">
-            <Button onClick={calculateCalories}>Calculate Calories</Button>
-          </div>
-          {calories !== null && (
-            <div>
-              <h2>
-                Your daily calorie requirement:{" "}
-                <span className="font-bold text-blue-600">
-                  {calories.toFixed(0)}
-                </span>{" "}
-                kcal
-              </h2>
             </div>
-          )}
+            <div className="mb-5">
+              <Button onClick={calculateCalories} className="w-full">
+                Calculate Calories
+              </Button>
+            </div>
+          </div>
+          <div>
+            {calories !== null && (
+              <div className="text-center">
+                <h2 className="mb-3">
+                  Your daily calorie requirement:{" "}
+                  <span className="font-bold text-blue-600">
+                    {calories.toFixed(0)}
+                  </span>{" "}
+                  kcal
+                </h2>
+              </div>
+            )}
+          </div>
         </div>
+
         <Link href="/">
-          <Button variant={"ghost"} className="my-10">
-            <ArrowLeft className="h-4 w-4" />
+          <Button variant="ghost" className="mt-8">
+            <ArrowLeft className="h-4 w-4 mr-1" />
             Back to site
           </Button>
         </Link>

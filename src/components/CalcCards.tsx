@@ -31,7 +31,7 @@ const CALCVARIANTS = [
   {
     title: "Love Calculator",
     description:
-      "With The Love Calculator you can calculate the probability of a successful relationship between two people. ",
+      "With The Love Calculator you can calculate the probability of a successful relationship between two people.",
     url: "/calculators/LoveCalculator",
   },
   {
@@ -59,22 +59,21 @@ const CALCVARIANTS = [
     url: "/calculators/RandomNumberGenerator",
   },
   {
-    title: "Weight Conventer",
+    title: "Weight Converter",
     description:
       "Effortlessly convert between different weight units with our easy-to-use Weight Converter.",
     url: "/calculators/WeightConventer",
   },
-  
 ];
 
 const CalcCards = () => {
   return (
-    <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-slate-50">
+    <div className="w-full h-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 bg-slate-50 p-4">
       {CALCVARIANTS.map((calc, index) => (
-        <Card className="m-3" key={index}>
-          <CardHeader className="text-lg tracking-tighter line-clamp-3">
-            <CardTitle>{calc.title}</CardTitle>
-            <CardDescription>
+        <Card className="m-3 flex flex-col justify-between" key={index}>
+          <CardHeader className="text-lg tracking-tighter">
+            <CardTitle className="line-clamp-1">{calc.title}</CardTitle>
+            <CardDescription className="line-clamp-3">
               {calc.description}
             </CardDescription>
           </CardHeader>
