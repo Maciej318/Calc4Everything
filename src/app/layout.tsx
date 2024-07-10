@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Head from "next/head";
+import AdSense from "@/components/AdSense";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
   description: "Explore the best web-based calculators for every need, from simple math to complex equations, all in one place.",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,10 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7958195163555912"
-     crossOrigin="anonymous"></script>
-      </Head>
+      <head>
+        <AdSense pId="ca-pub-7958195163555912"/>
+      </head>
       <body className={inter.className}>
         <Navbar />
         {children}
