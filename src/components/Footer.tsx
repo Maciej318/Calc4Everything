@@ -12,20 +12,6 @@ const Footer = () => {
               reserved
             </p>
           </div>
-
-          <div className="flex items-center justify-center mt-4 md:mt-0">
-            <div className="flex space-x-6 md:space-x-8">
-              <Link href="#" passHref className="text-sm text-muted-foreground hover:text-gray-600">
-                  Terms
-              </Link>
-              <Link href="#" passHref className="text-sm text-muted-foreground hover:text-gray-600">
-                  Privacy Policy
-              </Link>
-              <Link href="#" passHref className="text-sm text-muted-foreground hover:text-gray-600">
-                  Cookie Policy
-              </Link>
-            </div>
-          </div>
         </div>
       </MaxWidthWrapper>
     </footer>

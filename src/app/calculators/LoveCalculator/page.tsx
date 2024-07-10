@@ -20,6 +20,10 @@ const Page = () => {
       setResult(100);
     } else if (name1.toLowerCase() === "maryjka" && name2.toLowerCase() === "maciejko") {
       setResult(100);
+    } else if (name1.toLowerCase() === "karolina" && name2.toLowerCase() === "maciej") {
+      setResult(100);
+    } else if (name1.toLowerCase() === "maciej" && name2.toLowerCase() === "karolina") {
+      setResult(100);
     } else {
       const random = Math.floor(Math.random() * 100) + 1;
       setResult(random);
@@ -34,20 +38,20 @@ const Page = () => {
   };
 
   return (
-    <div>
+    <div className="flex justify-center items-center min-h-screen bg-zinc-200">
       <MaxWidthWrapper>
         <h1 className="text-3xl text-center mb-1">
           <span className="text-blue-600">Love</span> Calculator
         </h1>
-        <div className="border-b w-[370px] mx-auto mb-10 border-zinc-300" />
-        <div className="relative h-[calc(100vh-200px)] w-full p-4 gap-8">
+        <div className="border-b w-full max-w-[370px] mx-auto mb-10 border-zinc-300" />
+        <div className="relative w-full p-4 gap-8 bg-white rounded-lg shadow-lg">
           <img
             src="/heartBg.jpg"
             alt="heartBg"
-            className="absolute top-0 left-0 w-full h-full object-cover opacity-30 -z-10"
+            className="absolute top-0 left-0 w-full h-full object-cover opacity-30 -z-10 rounded-lg"
           />
           {isOpen ? (
-            <div className="relative z-10 flex items-center justify-center mt-[300px] gap-10">
+            <div className="relative z-10 flex flex-col items-center justify-center gap-6">
               <div className="text-center">
                 <label className="tracking-tighter font-bold">Your Name</label>
                 <Input
@@ -68,7 +72,7 @@ const Page = () => {
               </div>
             </div>
           ) : (
-            <div className="relative z-10 flex flex-col items-center justify-center w-full mt-[300px] gap-4 text-center">
+            <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-center">
               <h1 className="text-2xl font-bold">
                 {name1} <span className="text-blue-600">&</span> {name2}
               </h1>
@@ -86,7 +90,7 @@ const Page = () => {
           </div>
         </div>
         <Link href="/">
-          <Button variant="ghost" className="mb-5">
+          <Button variant="ghost" className="mt-10">
             <ArrowLeft className="h-4 w-4" />
             Back to site
           </Button>

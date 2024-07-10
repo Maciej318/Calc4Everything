@@ -46,11 +46,13 @@ const Page = () => {
   ];
 
   return (
-    <div>
+    <div className="flex justify-center items-center min-h-screen">
       <MaxWidthWrapper>
-        <h1 className="text-3xl text-center mb-1"><span className="text-blue-600">Standard</span> Calculator</h1>
-        <div className="border-b w-[370px] mx-auto mb-6 border-zinc-300" />
-        <div className="h-[calc(100vh-200px)] w-full p-4 gap-8 bg-zinc-200 border-zinc-500 rounded-lg">
+        <h1 className="text-3xl text-center mb-1">
+          <span className="text-blue-600">Standard</span> Calculator
+        </h1>
+        <div className="border-b w-full max-w-[370px] mx-auto mb-6 border-zinc-300" />
+        <div className="h-full max-w-full p-4 gap-8 bg-zinc-200 border-zinc-500 rounded-lg">
           <input
             type="text"
             className="mb-2 text-5xl w-full border-b-2 bg-zinc-200 border-zinc-400 focus:outline-none"
@@ -68,7 +70,7 @@ const Page = () => {
               <Button
                 key={index}
                 onClick={() => handleButtonClick(button)}
-                className="text-4xl py-[50px] bg-blue-400 hover:border-blue-600"
+                className="text-4xl py-[20px] sm:py-[30px] md:py-[40px] lg:py-[50px] bg-blue-400 hover:border-blue-600"
               >
                 {button}
               </Button>
